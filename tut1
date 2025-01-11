@@ -1,0 +1,246 @@
+print("dude i am manav")
+
+a=6
+b=9
+print(a+b)
+
+
+x="my name is"
+y="manav"
+print(x+ " "+y)
+
+
+c="my age is"
+d=20
+print(c+ " "+str(d))
+
+
+e=int(input("enter the number"))
+if e%2==1:
+    print("the number is odd")
+elif e==0:
+    print("the number is zero")
+else:
+    print("the number is even")
+
+
+f=int(input("enter the number"))
+if f>=0:
+    print("the number is positive")
+else:
+    print("the number is negative")
+
+g=int(input("enter the number"))
+for i in range(1,g+1):
+    print(i)
+
+
+h=1
+while h<=10:
+    print(h)
+    h+=1
+
+
+i=100
+sum=0
+for j in range(i+1):
+    sum=sum+j
+    print(sum)
+
+
+num=[10,20,30,40,50]
+print("max is ",max(num))
+print("min is ",min(num))
+
+
+dictionary={
+    'name':'Manav',
+    'age':20,
+    'city':'Amritsar'
+}
+print(dictionary['name'])
+print(dictionary['age'])
+print(dictionary['city'])
+
+
+
+
+u=[10,63,6,4,97,44]
+u.sort()
+print(u)
+u.sort(reverse=True)
+print(u)
+
+
+
+m={
+    'name':'Manav',
+    'age':20,
+}
+n={
+    'city':'Amritsar',
+}
+m.update(n)
+print(m)
+
+
+
+s = input("Enter a string: ")
+k = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+for i in range(0, len(s)):
+    y = s.count(s[i])
+    if y > 0:
+        print(s[i], "=>", y)
+
+
+z="AMRITSAR"
+print(z[::-1])
+
+
+
+v=input("Enter a string: ")
+if(v==v[::-1]):
+    print(v,"is a palindrome")
+else:
+    print(v,"is not a palindrome")
+
+
+with open("manav.txt","w") as file:
+    file.write("hello my name is manav.\n")
+    file.write("my age is 20.")
+
+
+with open("manav.txt","r") as file:
+    for line in file:
+        print(line)
+
+
+
+with open("manav.txt","a") as file:
+    file.write("hello my name is manav.\n")
+    file.write("my age is 20.")
+
+
+with open("manav.txt","r") as file:
+    for line in file:
+        print(line)
+
+
+
+
+with open("manav.txt","w") as file:
+    file.write("hello my name is manav.\n")
+    file.write("my age is 20.\n")
+
+file = open("manav.txt", "r")
+Count = 0
+
+Content = file.read()
+List = Content.split("\n")
+
+for i in List:
+	if i:
+		Count += 1
+
+print("This is the number of lines in the file")
+print(Count)
+
+with open("manav.txt","r") as file:
+    for line in file:
+        print(line)
+
+
+
+numerator = 10
+denominator = 0
+
+try:
+    result = numerator / denominator
+except ZeroDivisionError:
+    print("Error")
+
+
+
+try:
+    num=input("enter the number")
+    number=int(num)
+    print(number)
+except ValueError:
+    print("invalid input")
+
+
+
+
+numerator = 10
+denominator = 0
+
+try:
+    result = numerator // denominator
+    print(result)
+
+except ZeroDivisionError:
+    print("Error")
+finally:
+    print("the code is properly executed")
+
+
+
+from random import randint
+for i in range(5):
+    print(randint(1,100))
+
+
+
+
+from random import randint
+number=randint(1,100)
+print(number)
+if number<2:
+    print('false')
+else:
+    for j in range(2,int(number//2)+1):
+        if(number%j)==0:
+            isprime= False
+            break
+    if isprime:
+        print("true")
+    else:
+        print("false")
+
+import random
+roll=random.randint(1,6)
+print(roll)
+
+
+import random
+shuffle=random.randint(1,100)
+print(shuffle)
+
+
+
+import random
+suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+deck = [f"{rank} of {suit}" for suit in suits for rank in ranks]
+
+random_card = random.choice(deck)
+
+print(f"The random card is: {random_card}")
+
+
+
+import math
+x=int(input("Enter a number: "))
+print(math.sqrt(x))
+
+
+
+import datetime
+x=datetime.datetime.now()
+print(x)
+
+
+import os
+x=os.getcwd()
+y=os.listdir(x)
+print(y)
