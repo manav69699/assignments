@@ -1,0 +1,95 @@
+import pandas as pd
+
+
+data=pd.DataFrame([{"Tid":1,"Refund":"Yes","Marital Status":"Single","Taxable Income":"125K","Cheat":"No"},
+                   {"Tid":2,"Refund":"No","Marital Status":"Married","Taxable Income":"100K","Cheat":"No"},
+                   {"Tid":3,"Refund":"No","Marital Status":"Single","Taxable Income":"70K","Cheat":"No"},
+                   {"Tid":4,"Refund":"Yes","Marital Status":"Married","Taxable Income":"120K","Cheat":"No"},
+                   {"Tid":5,"Refund":"No","Marital Status":"Divorced","Taxable Income":"95K","Cheat":"Yes"},
+                   {"Tid":6,"Refund":"No","Marital Status":"Married","Taxable Income":"60K","Cheat":"No"},
+                   {"Tid":7,"Refund":"Yes","Marital Status":"Divorced","Taxable Income":"220K","Cheat":"No"},
+                   {"Tid":8,"Refund":"No","Marital Status":"Single","Taxable Income":"85K","Cheat":"Yes"},
+                   {"Tid":9,"Refund":"No","Marital Status":"Married","Taxable Income":"75K","Cheat":"No"},
+                   {"Tid":10,"Refund":"No","Marital Status":"Single","Taxable Income":"90K","Cheat":"Yes"}])
+print(data)
+
+print("\n")
+
+selected_rows=data.loc[[0,4,7,8]]
+print(selected_rows)
+
+data_3to8=data.loc[3:8]
+print(data_3to8)
+
+data2=data.iloc[4:8,2:4]
+print(data2)
+
+data3=data.iloc[:,1:4]
+print(data3)
+
+df = pd.read_csv('tut10.py')
+
+df=df.drop(index=3)
+df=df.drop(columns=df.columns[2])
+print(df)
+
+
+import pandas as pd
+
+dataset=pd.DataFrame([{"empid":101,"name":"Alice","department":"HR","Age":"29","Salary":50000,"years_of_experience":4,"joining_date":"2020-03-15","gender":"female","bonus":"5000","rating":"4.5"},
+                   {"empid":102,"name":"Bob","department":"IT","Age":"34","Salary":70000,"years_of_experience":8,"joining_date":"2017-07-19","gender":"MALE","bonus":"7000","rating":"4.0"},
+                   {"empid":103,"name":"Charlie","department":"IT","Age":"41","Salary":65000,"years_of_experience":10,"joining_date":"2013-06-01","gender":"male","bonus":"6000","rating":"3.8"},
+                   {"empid":104,"name":"Diana","department":"Marketing","Age":"28","Salary":55000,"years_of_experience":3,"joining_date":"2022-02-10","gender":"female","bonus":"4500","rating":"4.7"},
+                   {"empid":105,"name":"Edward","department":"Sales","Age":"38","Salary":60000,"years_of_experience":12,"joining_date":"2010-11-25","gender":"male","bonus":"5000","rating":"3.5"}])
+
+print(dataset)
+print(dataset.info())
+print("\n")
+print(dataset.describe())
+print(dataset.head(5))
+print(dataset.tail(3))
+average_salary = dataset.groupby('Salary').mean()
+print(average_salary)
+total_sum=dataset.groupby('Salary').sum()
+print(total_sum)
+min_age=dataset.groupby('Age').min()
+print(min_age)
+highest_performance=dataset.groupby('rating').max()
+print(highest_performance)
+
+sort_salary=dataset.sort_values(by='Salary',ascending=False)
+print(sort_salary)
+dataset['rating'] = pd.to_numeric(dataset['rating'], errors='coerce')
+def performance_ranting(rating):
+    if rating>=4.5:
+        print("excellent")
+    elif 4.0<=rating<=4.5:
+        print("good")
+    else:
+        print("average")
+dataset['performance_ranting']=dataset['rating'].apply(performance_ranting)
+
+missing_values=dataset.isnull()
+missing_sum=dataset.isnull().sum()
+print(missing_values)
+print(missing_sum)
+
+dataset=dataset.rename(columns={'empid':'ID'})
+print(dataset)
+
+df = pd.DataFrame(dataset)
+filtered_employees = df[(df["years_of_experience"] > 5) & (df["department"] == "IT")]
+print(filtered_employees)
+
+
+df = pd.DataFrame(dataset)
+
+df['Salary'] = pd.to_numeric(df['Salary'], errors='coerce')
+
+df['Tax'] = df['Salary'] * 0.10
+
+print(df)
+
+
+
+
